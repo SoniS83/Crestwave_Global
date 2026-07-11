@@ -4,7 +4,7 @@
   /* Colors */
   --primary: #0B2341;
   --secondary: #2563EB;
-  --accent: #C9A227;
+  --accent: #C8102E;
   --bg: #FFFFFF;
   --section-bg: #F8FAFC;
   --text: #111827;
@@ -192,8 +192,8 @@ button, input, textarea, select {
 }
 
 .btn-accent:hover {
-  background-color: #b08d20;
-  box-shadow: 0 10px 25px rgba(201, 162, 39, 0.2);
+  background-color: #a50d25;
+  box-shadow: 0 10px 25px rgba(200, 16, 46, 0.25);
   transform: translateY(-2px);
 }
 

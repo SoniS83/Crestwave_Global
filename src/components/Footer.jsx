@@ -23,8 +23,8 @@ export default function Footer() {
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1.5fr 1fr 1fr 1.5fr',
-          gap: '3rem',
+          gridTemplateColumns: '1.4fr 1fr 0.9fr 1fr 1.4fr',
+          gap: '2.5rem',
           marginBottom: '4rem'
         }} className="footer-grid">
           
@@ -32,9 +32,9 @@ export default function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
               <img 
-                src="/images/logo.jpeg" 
+                src="/images/logo_icon.png" 
                 alt="Crestwave Global Logo" 
-                style={{ height: '48px', width: 'auto', borderRadius: '4px', filter: 'brightness(1.05)' }} 
+                style={{ height: '48px', width: 'auto', mixBlendMode: 'screen', objectFit: 'contain' }} 
               />
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{
@@ -77,10 +77,21 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.9rem' }}>
               <li><Link to="/about" className="footer-link">Our Story</Link></li>
               <li><Link to="/products" className="footer-link">Product Sourcing</Link></li>
-              <li><Link to="/manufacturing" className="footer-link">Manufacturing</Link></li>
-              <li><Link to="/quality" className="footer-link">Quality Control</Link></li>
               <li><Link to="/export-process" className="footer-link">Export Timeline</Link></li>
               <li><Link to="/global-markets" className="footer-link">Global Markets</Link></li>
+              <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 2b: Company Info Pages */}
+          <div>
+            <h4 style={{ color: '#ffffff', fontSize: '1rem', fontWeight: '600', marginBottom: '1.5rem', fontFamily: 'var(--font-display)', letterSpacing: '0.05em' }}>
+              COMPANY
+            </h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.9rem' }}>
+              <li><Link to="/manufacturing" className="footer-link">Manufacturing</Link></li>
+              <li><Link to="/quality" className="footer-link">Quality Control</Link></li>
+              <li><Link to="/industries" className="footer-link">Industries</Link></li>
               <li><Link to="/faq" className="footer-link">FAQ Support</Link></li>
             </ul>
           </div>
@@ -179,9 +190,14 @@ export default function Footer() {
       </div>
 
       <style dangerouslySetInnerHTML={{__html: `
+        @media (max-width: 1100px) {
+          .footer-grid {
+            grid-template-columns: 1fr 1fr 1fr !important;
+          }
+        }
         @media (max-width: 992px) {
           .footer-grid {
-            grid-template-columns: 1.2fr 1fr 1.2fr !important;
+            grid-template-columns: 1fr 1fr !important;
           }
         }
         @media (max-width: 768px) {

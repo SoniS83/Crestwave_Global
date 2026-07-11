@@ -176,7 +176,7 @@ export default function FAQ() {
               width: '48px',
               height: '48px',
               borderRadius: '50%',
-              backgroundColor: 'rgba(201, 162, 39, 0.08)',
+              backgroundColor: 'rgba(200, 16, 46, 0.08)',
               color: 'var(--accent)',
               display: 'flex',
               alignItems: 'center',

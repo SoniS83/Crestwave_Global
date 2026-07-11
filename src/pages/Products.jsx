@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 import FinalCTA from '../components/FinalCTA';
 
 export default function Products() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const location = useLocation();
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    return cat || 'all';
+  });
+
+  // Sync when URL query param changes (e.g. clicking dropdown links)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const cat = params.get('cat');
+    setSelectedCategory(cat || 'all');
+  }, [location.search]);
 
   const categories = [
     { id: 'all', label: 'All Sourcing Categories' },
