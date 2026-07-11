@@ -1,17 +1,14 @@
 name: Deploy to Azure VM
-
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Deploy to VM
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -22,15 +19,5 @@ jobs:
           script: |
             cd /home/azureuser/prince/Crestwave_Global
             git pull origin main
-            docker stop crestwave || true
-            docker rm crestwave || true
-            docker build -t crestwave .
-            docker run -d \
-              --name crestwave \
-              -p 80:5000 \
-              --restart always \
-              -e NODE_ENV=production \
-              -e PORT=5000 \
-              --env-file .env \
-              crestwave
-            echo "Deployed!"
+            docker compose down
+            docker compose up -d --build
