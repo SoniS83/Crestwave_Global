@@ -86,9 +86,6 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Backend is working");
-});
 
 app.get("/api/test", (req, res) => {
   res.json({
